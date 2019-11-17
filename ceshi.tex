@@ -21,7 +21,7 @@
 本宏包名叫cnlogo，是利用tikz绘制国内高校的校徽，借助学校本身提供的pdf高清矢量图通过inkscape转化为tikz代码。到目前为止已经绘制了60多所学校的校徽，有北京大学（pku），清华大学（thu），中国科学技术大学（ustc），复旦大学(fdu)，上海交通大学（stju），武汉大学（whu），浙江大学（zju），厦门大学（xmu），西安交通大学（xjtu），南方科技大学（sustc），华中科技大学（hustc），同济大学（tju），北京交通大学（bjtu），湖南师范大学（hnnu），贵阳师范大学（gnu），中国政法大学（cupsl），华中师范大学（hznu），四川大学（scu），山东大学（sdu），吉林大学（jlu），中山大学（sysu），上海大学（shu），暨南大学（jnu），深圳大学（szu），湖南大学（hnu），中国矿业大学（ckyu），西安电子科技大学（xdu），温州大学（wzu），西南农业大学（swau），天津大学（tjuu），广东外语外贸大学（gufs），北京科技大学（ustb），中国人民大学（ruc），湖北大学（hbu），长安大学（chu），西南师范大学（swcnu），东北大学（neu），南开大学（nku），南京大学，东北财经大学（dbcju），大连理工大学（dllgu），江南大学（ju），中国地质大学（cug），中央民族大学（muc），河海大学（hhu），华东政法大学（hdzfu），中国农业大学（znyu），山东财经大学（sdcju），扬州大学（yzu），北京师范大学（bnu），郑州大学（zzu），北京邮电大学（bjydu），南昌大学（ncu），北京航空航天大学（bhu），华东师范大学（hdsfu），中国海洋大学（zhyu），中南大学（csu），兰州大学（lzu），华南理工大学（hnlgu），西北农林科技大学（xbnlkju），安徽大学与合工大（ahu），武汉理工大学（whlgu），中国传媒大学（zcmu），哈尔滨工业大学（hiu），中国科学院（zky）。
 
 
-大家下载这个包可以直接使用，或者将它安装到你的\TeX 发行版中。以\TeX live为例，将整个文件夹复制到\texttt{texlive/texmf-local/tex/latex/}下，然后命令行执行texhash就可以完成安装，此后要想使用这个包，就可以直接在导言区输入\verb|\usepackage[选项]{cnlogo}|即可，这里的选项有pku，thu，ustc，fdu，stju，whu，zju，xmu，xjtu，sustcd等，分别对应各个学校。可以加载一个或多个选项，比如\verb|\usepackage[ustc,thu,pku]{cnlogo}|就可以输入与科大，清华，北大相关的命令。如果不加可选项则为空包。
+大家下载这个包可以直接使用，或者将它安装到你的\TeX 发行版中。以\TeX live为例，将整个文件夹复制到\texttt{texlive/texmf-local/tex/latex/}下，然后命令行执行texhash就可以完成安装，此后要想使用这个包，就可以直接在导言区输入\verb|\usepackage[选项]{cnlogo}|即可，这里的选项有pku，thu，ustc，fdu，stju，whu，zju，xmu，xjtu，sustc，分别对应各个学校。可以加载一个或多个选项，比如\verb|\usepackage[ustc,thu,pku]{cnlogo}|就可以输入与科大，清华，北大相关的命令。如果不加可选项则为空包。
 
 本包的命令都以学校名为前缀，后缀为logo，text，whole或者side，这里的logo表示校徽，text表示校名，whole和side表示校徽和校名都有。每个命令包含$2\sim5$个可选参数，其中最后一个可选参数是scale的大小，只需要在可选框中输入一个数字即可，表示整个图像的放缩比例，默认值均为1，本包自定义了很多颜色名，都是用对应的学校名称命名的，因为在获取矢量图的时候的颜色就是如此。
 
