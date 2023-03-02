@@ -100,3 +100,73 @@ $ kpsewhere cnlogo.sty
 
 <!-- ex: nowrap
 -->
+
+## 用法
+
+[帮助文档](https://mirrors.cnlogo.org/language/chinese/cnlogo/cnlogo.pdf)
+
+## 开发
+
+### 构建
+
+```sh
+git clone --depth=1 https://github.com/yuxtech/cnlogo  # 下载源代码
+cd cnlogo
+vi cnlogo/学校的缩写.tex  # 新建文件，可以参考别的学校
+cat cnlogo/学校的缩写.tex  # 显示文件内容
+```
+
+```tex
+% 学校的缩写
+% 学校的网址
+% 你的姓名 <你的邮箱>  % 方便 logo 有问题的时候你的学弟学妹可以联系到你
+% 其他注意事项
+% 例如 logo 的原始 pdf 文件来源，以便确认没有版权问题或者出现争议时方便查找
+
+% 定义颜色
+\definecolor{学校的缩写}{RGB}{0,0,0}
+% 定义命令，命令参考上一节的帮助文档
+\NewDocumentCommand\学校的缩写logo{O{学校的缩写}O{1}}{
+... % 生成学校 logo 的 tikz 代码，参见下一节
+}
+...
+```
+
+```sh
+l3build tag  # 自动更新文档和源代码，不要手动编辑它们！
+l3build doc  # 确认能否成功构建帮助文档
+xdg-open *.pdf  # 浏览帮助文档检查图标是否正确
+git commit -m ':sparkles: Support 学校的名字'
+gh pr create  # 发送代码合并请求
+```
+
+### 从 logo 的 `pdf` 文件得到生成 `logo` 的 tikz 代码
+
+`pdf` 文件难以修改颜色，所以该项目使用 `tikz` 代码存储 logo 。
+
+安装任意一个 `svg` 转 `tikz` 的插件：
+
+- [svg2tikz](https://github.com/xyz2tex/svg2tikz)
+- [inkscape2tikz](https://github.com/halamalala/inkscape2tikz)
+
+1. 使用 [Inkscape](https://github.com/inkscape/inkscape) 打开 `pdf` 后另存为 `svg`
+2. `Extensions > Export > Export to tikz`
+3. 编辑生成的代码得到 `cnlogo/学校的缩写.tex`
+
+## TODO
+
+1. 为所有学校都添加一个指向学校网址的超链接
+2. 将学校的 logo 统一修改为相同尺寸，目前定为能使以下代码中校徽的圆能与侧边栏正切的尺寸
+
+```tex
+\documentclass{beamer}
+\usepackage[ustc]{cnlogo}
+\logo{\ustclogo[ustc][0.1]}
+\usetheme{Berkeley}
+\usecolortheme{spruce}
+\begin{document}
+
+\maketitle
+
+\end{document}
+```

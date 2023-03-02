@@ -10,6 +10,7 @@ demofiles = {"latexmkrc", "Makefile"}
 docfiles = {"*.md", "*.cfg"}
 tagfiles = {"*.dtx", "build.lua", "README.md"}
 sourcefiles = {"*.dtx", "*.ins", "cnlogo"}
+installfiles = {"*.sty", "*.cls", "cnlogo"}
 typesetexe = "lualatex"
 typesetopts =
     "-shell-escape -file-line-error -8bit -halt-on-error -interaction=nonstopmode"
@@ -193,9 +194,11 @@ end
 ---@param tagdate string
 ---@return string
 function update_tag(file, content, tagname, tagdate)
-    tagdate = string.gsub(tagdate, "-", "/")
-    content = string.gsub(content, "%d%d%d%d/%d%d/%d%d v[0-9.]+",
-                          tagdate .. " v" .. tagname)
+    if tagname then
+        tagdate = string.gsub(tagdate, "-", "/")
+        content = string.gsub(content, "%d%d%d%d/%d%d/%d%d v[0-9.]+",
+                              tagdate .. " v" .. tagname)
+    end
     content = update_code(file, content)
     return content
 end
