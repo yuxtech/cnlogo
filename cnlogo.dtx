@@ -1,0 +1,1633 @@
+% \iffalse
+%<*driver>
+\ProvidesFile{cnlogo.dtx}[2023/03/02 v0.0.1]
+\documentclass{ltxdoc}
+\usepackage[ahu,bhu,bjtu,bjydu,bnu,chu,ckyu,csu,cug,cupsl,dbcju,dllgu,fdu,gnu,gufs,hbu,hdsfu,hdzfu,hgyu,hhu,hit,hnlgu,hnnu,hnu,hustc,hznu,jlu,jnu,ju,lzu,muc,ncu,neu,nju,njust,nku,pku,ruc,scu,sdcju,sdu,shu,stju,sustc,swau,swcnu,sysu,szu,thu,tju,tjuu,ustb,ustc,whlgu,whu,wzu,xbnlkju,xdu,xjtu,xmu,yzu,zcmu,zhyu,zju,zky,znyu,zzu]{cnlogo}
+\usepackage{hypdoc}
+\usepackage{ctex}
+\begin{document}
+\DocInput{\jobname.dtx}
+\end{document}
+%</driver>
+% \fi
+% \title{\href{https://github.com/yuxtech/cnlogo}{cnlogo}\\2023/03/02 v0.0.1}
+% \author{\href{mailto:739049687@qq.com}{Yu Xiang}}
+% \maketitle
+% \begin{abstract}
+%   本宏包利用 tikz 绘制国内高校的校徽，借助学校本身提供的 pdf 高清矢量图通过
+%   inkscape 转化为 tikz 代码。
+%
+%   目前支持：安徽大学 (ahu), 北京航空航天大学 (bhu), 北京交通大学 (bjtu), 北京邮电大学 (bjydu), 北京师范大学 (bnu), 长安大学 (chu), 中国矿业大学 (ckyu), 中南大学 (csu), 中国地质大学 (cug), 中国政法大学 (cupsl), 东北财经大学 (dbcju), 大连理工大学 (dllgu), 复旦大学 (fdu), 贵阳师范大学 (gnu), 广东外语外贸大学 (gufs), 湖北大学 (hbu), 华东师范大学 (hdsfu), 华东政法大学 (hdzfu), 合肥工业大学 (hgyu), 河海大学 (hhu), 哈尔滨工业大学 (hit), 华南理工大学 (hnlgu), 湖南师范大学 (hnnu), 湖南大学 (hnu), 华中科技大学 (hustc), 华中师范大学 (hznu), 吉林大学 (jlu), 暨南大学 (jnu), 江南大学 (ju), 兰州大学 (lzu), 中央民族大学 (muc), 南昌大学 (ncu), 东北大学 (neu), 南京大学 (nju), 南京理工大学 (njust), 南开大学 (nku), 北京大学 (pku), 中国人民大学 (ruc), 四川大学 (scu), 山东财经大学 (sdcju), 山东大学 (sdu), 上海大学 (shu), 上海交通大学 (stju), 南方科技大学 (sustc), 西南农业大学 (swau), 西南师范大学 (swcnu), 中山大学 (sysu), 深圳大学 (szu), 清华大学 (thu), 同济大学 (tju), 天津大学 (tjuu), 北京科技大学 (ustb), 中国科学技术大学 (ustc), 武汉理工大学 (whlgu), 武汉大学 (whu), 温州大学 (wzu), 西北农林科技大学 (xbnlkju), 西安电子科技大学 (xdu), 西安交通大学 (xjtu), 厦门大学 (xmu), 扬州大学 (yzu), 中国传媒大学 (zcmu), 中国海洋大学 (zhyu), 浙江大学 (zju), 中国科学院大学 (zky), 中国农业大学 (znyu), 郑州大学 (zzu)。
+% \end{abstract}
+% \tableofcontents
+% \section{介绍}%
+% \label{sec:introduction}
+%
+% 在导言区输入 \verb|\usepackage[option1,option2,...]{cnlogo}| 即可使用这个包。
+% 这里的选项对应各个学校的缩写，如果不加选项则为空包。
+%
+% \section{展示}%
+% \label{sec:display}
+%
+% \subsection{安徽大学}%
+% \label{ssec:ahu}
+%
+% \begin{verbatim}
+%   \definecolor{ahu}{RGB}{29,34,132}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \ahulogo[ahu][1]
+% \end{verbatim}
+%
+% \ahulogo[ahu][1]
+%
+% \subsection{北京航空航天大学}%
+% \label{ssec:bhu}
+%
+% \begin{verbatim}
+%   \definecolor{bhu}{RGB}{35,31,32}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \bhulogo[bhu][1]
+% \end{verbatim}
+%
+% \bhulogo[bhu][1]
+%
+% \subsection{北京交通大学}%
+% \label{ssec:bjtu}
+%
+% \begin{verbatim}
+%   \definecolor{bjtu}{RGB}{35,25,22}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \bjtuwhole[bjtu][1]
+% \end{verbatim}
+%
+% \bjtuwhole[bjtu][1]
+%
+% \begin{verbatim}
+%   \bjtulogo[bjtu][1]
+% \end{verbatim}
+%
+% \bjtulogo[bjtu][1]
+%
+% \begin{verbatim}
+%   \bjtutext[bjtu][1]
+% \end{verbatim}
+%
+% \bjtutext[bjtu][1]
+%
+% \subsection{北京邮电大学}%
+% \label{ssec:bjydu}
+%
+% \begin{verbatim}
+%   \definecolor{bjydu}{RGB}{0,158,224}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \bjydulogo[bjydu][1]
+% \end{verbatim}
+%
+% \bjydulogo[bjydu][1]
+%
+% \subsection{北京师范大学}%
+% \label{ssec:bnu}
+%
+% \begin{verbatim}
+%   \definecolor{bnu1}{RGB}{0,130,193}
+%   \definecolor{bnu2}{RGB}{0,158,224}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \bnuwhole[bnu1][bnu2][1]
+% \end{verbatim}
+%
+% \bnuwhole[bnu1][bnu2][1]
+%
+% \begin{verbatim}
+%   \bnulogo[bnu1][bnu2][1]
+% \end{verbatim}
+%
+% \bnulogo[bnu1][bnu2][1]
+%
+% \begin{verbatim}
+%   \bnutext[bnu1][bnu2][1]
+% \end{verbatim}
+%
+% \bnutext[bnu1][bnu2][1]
+%
+% \subsection{长安大学}%
+% \label{ssec:chu}
+%
+% \begin{verbatim}
+%   \chulogo[blue][1]
+% \end{verbatim}
+%
+% \chulogo[blue][1]
+%
+% \subsection{中国矿业大学}%
+% \label{ssec:ckyu}
+%
+% \begin{verbatim}
+%   \ckyulogo[blue][1]
+% \end{verbatim}
+%
+% \ckyulogo[blue][1]
+%
+% \subsection{中南大学}%
+% \label{ssec:csu}
+%
+% \begin{verbatim}
+%   \definecolor{csu}{RGB}{32,77,136}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \csulogo[csu][1]
+% \end{verbatim}
+%
+% \csulogo[csu][1]
+%
+% \subsection{中国地质大学}%
+% \label{ssec:cug}
+%
+% \begin{verbatim}
+%   \definecolor{cug}{RGB}{15,54,122}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \cuglogo[cug][1]
+% \end{verbatim}
+%
+% \cuglogo[cug][1]
+%
+% \subsection{中国政法大学}%
+% \label{ssec:cupsl}
+%
+% \begin{verbatim}
+%   \definecolor{cupsl}{RGB}{157,16,18}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \cupslwhole[cupsl][1]
+% \end{verbatim}
+%
+% \cupslwhole[cupsl][1]
+%
+% \begin{verbatim}
+%   \cupsllogo[cupsl][1]
+% \end{verbatim}
+%
+% \cupsllogo[cupsl][1]
+%
+% \begin{verbatim}
+%   \cupsltext[cupsl][1]
+% \end{verbatim}
+%
+% \cupsltext[cupsl][1]
+%
+% \subsection{东北财经大学}%
+% \label{ssec:dbcju}
+%
+% \begin{verbatim}
+%   \definecolor{dbcju}{RGB}{4,60,108}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \dbcjulogo[dbcju][1]
+% \end{verbatim}
+%
+% \dbcjulogo[dbcju][1]
+%
+% \subsection{大连理工大学}%
+% \label{ssec:dllgu}
+%
+% \begin{verbatim}
+%   \definecolor{dllgu}{RGB}{0,67,148}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \dllguwhole[dllgu][1]
+% \end{verbatim}
+%
+% \dllguwhole[dllgu][1]
+%
+% \begin{verbatim}
+%   \dllgulogo[dllgu][1]
+% \end{verbatim}
+%
+% \dllgulogo[dllgu][1]
+%
+% \begin{verbatim}
+%   \dllgutext[dllgu][1]
+% \end{verbatim}
+%
+% \dllgutext[dllgu][1]
+%
+% \subsection{复旦大学}%
+% \label{ssec:fdu}
+%
+% \begin{verbatim}
+%   \fdulogo[black][1]
+% \end{verbatim}
+%
+% \fdulogo[black][1]
+%
+% \begin{verbatim}
+%   \fdutext[black][1]
+% \end{verbatim}
+%
+% \fdutext[black][1]
+%
+% \subsection{贵阳师范大学}%
+% \label{ssec:gnu}
+%
+% \begin{verbatim}
+%   \definecolor{gnu}{RGB}{182,9,3}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \gnulogo[gnu][1]
+% \end{verbatim}
+%
+% \gnulogo[gnu][1]
+%
+% \begin{verbatim}
+%   \gnutext[gnu][1]
+% \end{verbatim}
+%
+% \gnutext[gnu][1]
+%
+% \subsection{广东外语外贸大学}%
+% \label{ssec:gufs}
+%
+% \begin{verbatim}
+%   \definecolor{gufs1}{RGB}{237,28,36}
+%   \definecolor{gufs2}{RGB}{27,74,150}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \gufswhole[gufs1][gufs2][1]
+% \end{verbatim}
+%
+% \gufswhole[gufs1][gufs2][1]
+%
+% \begin{verbatim}
+%   \gufslogo[gufs1][gufs2][1]
+% \end{verbatim}
+%
+% \gufslogo[gufs1][gufs2][1]
+%
+% \begin{verbatim}
+%   \gufstext[gufs1][1]
+% \end{verbatim}
+%
+% \gufstext[gufs1][1]
+%
+% \subsection{湖北大学}%
+% \label{ssec:hbu}
+%
+% \begin{verbatim}
+%   \definecolor{hbu}{RGB}{40,22,111}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \hbulogo[hbu][1]
+% \end{verbatim}
+%
+% \hbulogo[hbu][1]
+%
+% \subsection{华东师范大学}%
+% \label{ssec:hdsfu}
+%
+% \begin{verbatim}
+%   \definecolor{hdsfu}{RGB}{227,0,22}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \hdsfulogo[hdsfu][1]
+% \end{verbatim}
+%
+% \hdsfulogo[hdsfu][1]
+%
+% \subsection{华东政法大学}%
+% \label{ssec:hdzfu}
+%
+% \begin{verbatim}
+%   \definecolor{hdzfu}{RGB}{112,21,26}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \hdzfuwhole[hdzfu][1]
+% \end{verbatim}
+%
+% \hdzfuwhole[hdzfu][1]
+%
+% \begin{verbatim}
+%   \hdzfulogo[hdzfu][1]
+% \end{verbatim}
+%
+% \hdzfulogo[hdzfu][1]
+%
+% \begin{verbatim}
+%   \hdzfutext[hdzfu][1]
+% \end{verbatim}
+%
+% \hdzfutext[hdzfu][1]
+%
+% \subsection{合肥工业大学}%
+% \label{ssec:hgyu}
+%
+% \begin{verbatim}
+%   \definecolor{hgyu}{RGB}{192,4,21}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \hgyulogo[hgyu][1]
+% \end{verbatim}
+%
+% \hgyulogo[hgyu][1]
+%
+% \subsection{河海大学}%
+% \label{ssec:hhu}
+%
+% \begin{verbatim}
+%   \definecolor{hhu}{RGB}{0,158,224}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \hhuwhole[hhu][1]
+% \end{verbatim}
+%
+% \hhuwhole[hhu][1]
+%
+% \begin{verbatim}
+%   \hhulogo[hhu][1]
+% \end{verbatim}
+%
+% \hhulogo[hhu][1]
+%
+% \begin{verbatim}
+%   \hhutext[hhu][1]
+% \end{verbatim}
+%
+% \hhutext[hhu][1]
+%
+% \subsection{哈尔滨工业大学}%
+% \label{ssec:hit}
+%
+% \begin{verbatim}
+%   \definecolor{hit}{RGB}{0,107,137}
+%   \definecolor{hit1}{RGB}{18,118,155}
+%   \definecolor{hit2}{RGB}{239,234,125}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \hitwhole[hit][1]
+% \end{verbatim}
+%
+% \hitwhole[hit][1]
+%
+% \begin{verbatim}
+%   \hitside[hit][1]
+% \end{verbatim}
+%
+% \hitside[hit][1]
+%
+% \begin{verbatim}
+%   \hitlogo[hit][1]
+% \end{verbatim}
+%
+% \hitlogo[hit][1]
+%
+% \begin{verbatim}
+%   \hittext[hit][1]
+% \end{verbatim}
+%
+% \hittext[hit][1]
+%
+% \begin{verbatim}
+%   \hitjt[hit1][hit2][1]
+% \end{verbatim}
+%
+% \hitjt[hit1][hit2][1]
+%
+% \subsection{华南理工大学}%
+% \label{ssec:hnlgu}
+%
+% \begin{verbatim}
+%   \definecolor{c0067ac}{RGB}{0,103,172}
+%   \definecolor{c0069ad}{RGB}{0,105,173}
+%   \definecolor{c006cae}{RGB}{0,108,174}
+%   \definecolor{c006db0}{RGB}{0,109,176}
+%   \definecolor{c006fb1}{RGB}{0,111,177}
+%   \definecolor{c0071b2}{RGB}{0,113,178}
+%   \definecolor{c0073b4}{RGB}{0,115,180}
+%   \definecolor{c0074b5}{RGB}{0,116,181}
+%   \definecolor{c1376b6}{RGB}{19,118,182}
+%   \definecolor{c1f78b8}{RGB}{31,120,184}
+%   \definecolor{c2a7bb9}{RGB}{42,123,185}
+%   \definecolor{c307dba}{RGB}{48,125,186}
+%   \definecolor{c367ebc}{RGB}{54,126,188}
+%   \definecolor{c3b80bd}{RGB}{59,128,189}
+%   \definecolor{c4082be}{RGB}{64,130,190}
+%   \definecolor{c4484c0}{RGB}{68,132,192}
+%   \definecolor{c4987c1}{RGB}{73,135,193}
+%   \definecolor{c4e89c2}{RGB}{78,137,194}
+%   \definecolor{c528bc4}{RGB}{82,139,196}
+%   \definecolor{c568dc5}{RGB}{86,141,197}
+%   \definecolor{c5a90c7}{RGB}{90,144,199}
+%   \definecolor{c5e92c8}{RGB}{94,146,200}
+%   \definecolor{c6294ca}{RGB}{98,148,202}
+%   \definecolor{c6797cb}{RGB}{103,151,203}
+%   \definecolor{c6b99cd}{RGB}{107,153,205}
+%   \definecolor{c6f9ccf}{RGB}{111,156,207}
+%   \definecolor{c739fd0}{RGB}{115,159,208}
+%   \definecolor{c77a1d2}{RGB}{119,161,210}
+%   \definecolor{c7aa3d3}{RGB}{122,163,211}
+%   \definecolor{c7ea5d5}{RGB}{126,165,213}
+%   \definecolor{c84a9d6}{RGB}{132,169,214}
+%   \definecolor{c89abd8}{RGB}{137,171,216}
+%   \definecolor{c8eaed9}{RGB}{142,174,217}
+%   \definecolor{c92b1db}{RGB}{146,177,219}
+%   \definecolor{c96b5dd}{RGB}{150,181,221}
+%   \definecolor{c9ab8df}{RGB}{154,184,223}
+%   \definecolor{c9fbbe1}{RGB}{159,187,225}
+%   \definecolor{ca6c1e3}{RGB}{166,193,227}
+%   \definecolor{cacc5e5}{RGB}{172,197,229}
+%   \definecolor{cb2c9e7}{RGB}{178,201,231}
+%   \definecolor{cb8ceea}{RGB}{184,206,234}
+%   \definecolor{cbdd1ec}{RGB}{189,209,236}
+%   \definecolor{cc3d5ee}{RGB}{195,213,238}
+%   \definecolor{cc8d9f0}{RGB}{200,217,240}
+%   \definecolor{cd1def2}{RGB}{209,222,242}
+%   \definecolor{cd9e4f4}{RGB}{217,228,244}
+%   \definecolor{ce1e9f6}{RGB}{225,233,246}
+%   \definecolor{ce9eff8}{RGB}{233,239,248}
+%   \definecolor{cf0f4fa}{RGB}{240,244,250}
+%   \definecolor{cffffff}{RGB}{255,255,255}
+%   \definecolor{c133984}{RGB}{19,57,132}
+%   \definecolor{c00468e}{RGB}{0,70,142}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \hnlguwhole
+% \end{verbatim}
+%
+% \hnlguwhole
+%
+% \begin{verbatim}
+%   \hnlgulogo
+% \end{verbatim}
+%
+% \hnlgulogo
+%
+% \begin{verbatim}
+%   \hnlgutext
+% \end{verbatim}
+%
+% \hnlgutext
+%
+% \subsection{湖南师范大学}%
+% \label{ssec:hnnu}
+%
+% \begin{verbatim}
+%   \definecolor{hnnu}{RGB}{200,22,30}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \hnnutext[hnnu][1]
+% \end{verbatim}
+%
+% \hnnutext[hnnu][1]
+%
+% \begin{verbatim}
+%   \hnnulogo[hnnu][1]
+% \end{verbatim}
+%
+% \hnnulogo[hnnu][1]
+%
+% \subsection{湖南大学}%
+% \label{ssec:hnu}
+%
+% \begin{verbatim}
+%   \definecolor{hnu}{RGB}{55,71,164}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \hnuwhole[hnu][1]
+% \end{verbatim}
+%
+% \hnuwhole[hnu][1]
+%
+% \begin{verbatim}
+%   \hnutext[hnu][1]
+% \end{verbatim}
+%
+% \hnutext[hnu][1]
+%
+% \begin{verbatim}
+%   \hnulogo[hnu][1]
+% \end{verbatim}
+%
+% \hnulogo[hnu][1]
+%
+% \subsection{华中科技大学}%
+% \label{ssec:hustc}
+%
+% \begin{verbatim}
+%   \definecolor{hustc1}{RGB}{1,85,157}  blue
+%   \definecolor{hustc2}{RGB}{243,24,1}  red
+%   \definecolor{hustc3}{RGB}{84,80,81}  gray
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \hustcwhole[1][hustc1][hustc2][hustc3]
+% \end{verbatim}
+%
+% \hustcwhole[1][hustc1][hustc2][hustc3]
+%
+% \begin{verbatim}
+%   \hustclogo[1][hustc2][hustc1][hustc3]
+% \end{verbatim}
+%
+% \hustclogo[1][hustc2][hustc1][hustc3]
+%
+% \begin{verbatim}
+%   \hustctext[1][hustc2]
+% \end{verbatim}
+%
+% \hustctext[1][hustc2]
+%
+% \subsection{华中师范大学}%
+% \label{ssec:hznu}
+%
+% \begin{verbatim}
+%   \definecolor{hznu}{RGB}{0,110,118}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \hznuwhole[hznu][1]
+% \end{verbatim}
+%
+% \hznuwhole[hznu][1]
+%
+% \begin{verbatim}
+%   \hznulogo[hznu][1]
+% \end{verbatim}
+%
+% \hznulogo[hznu][1]
+%
+% \begin{verbatim}
+%   \hznutext[hznu][1]
+% \end{verbatim}
+%
+% \hznutext[hznu][1]
+%
+% \subsection{吉林大学}%
+% \label{ssec:jlu}
+%
+% \begin{verbatim}
+%   \definecolor{jlu}{RGB}{0,62,141}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \jlulogo[jlu][1]
+% \end{verbatim}
+%
+% \jlulogo[jlu][1]
+%
+% \subsection{暨南大学}%
+% \label{ssec:jnu}
+%
+% \begin{verbatim}
+%   \definecolor{jnu}{RGB}{0,107,119}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \jnuwhole[jnu][1]
+% \end{verbatim}
+%
+% \jnuwhole[jnu][1]
+%
+% \begin{verbatim}
+%   \jnulogo[jnu][1]
+% \end{verbatim}
+%
+% \jnulogo[jnu][1]
+%
+% \begin{verbatim}
+%   \jnutext[jnu][1]
+% \end{verbatim}
+%
+% \jnutext[jnu][1]
+%
+% \subsection{江南大学}%
+% \label{ssec:ju}
+%
+% \begin{verbatim}
+%   \definecolor{ju}{RGB}{0,93,127}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \julogo[ju][1]
+% \end{verbatim}
+%
+% \julogo[ju][1]
+%
+% \subsection{兰州大学}%
+% \label{ssec:lzu}
+%
+% \begin{verbatim}
+%   \definecolor{lzu}{RGB}{27,25,24}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \lzuwhole[lzu][1]
+% \end{verbatim}
+%
+% \lzuwhole[lzu][1]
+%
+% \begin{verbatim}
+%   \lzulogo[lzu][1]
+% \end{verbatim}
+%
+% \lzulogo[lzu][1]
+%
+% \begin{verbatim}
+%   \lzutext[lzu][1]
+% \end{verbatim}
+%
+% \lzutext[lzu][1]
+%
+% \subsection{中央民族大学}%
+% \label{ssec:muc}
+%
+% \begin{verbatim}
+%   \mucwhole[black][1]
+% \end{verbatim}
+%
+% \mucwhole[black][1]
+%
+% \begin{verbatim}
+%   \muclogo[black][1]
+% \end{verbatim}
+%
+% \muclogo[black][1]
+%
+% \begin{verbatim}
+%   \muctext[black][1]
+% \end{verbatim}
+%
+% \muctext[black][1]
+%
+% \subsection{南昌大学}%
+% \label{ssec:ncu}
+%
+% \begin{verbatim}
+%   \definecolor{ncu}{RGB}{0,54,138}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \nculogo[ncu][1]
+% \end{verbatim}
+%
+% \nculogo[ncu][1]
+%
+% \begin{verbatim}
+%   \ncutext[ncu][1]
+% \end{verbatim}
+%
+% \ncutext[ncu][1]
+%
+% \subsection{东北大学}%
+% \label{ssec:neu}
+%
+% \begin{verbatim}
+%   \neuwhole[neu][1]
+% \end{verbatim}
+%
+% \neuwhole[neu][1]
+%
+% \begin{verbatim}
+%   \neulogo[neu][1]
+% \end{verbatim}
+%
+% \neulogo[neu][1]
+%
+% \begin{verbatim}
+%   \neutext[neu][1]
+% \end{verbatim}
+%
+% \neutext[neu][1]
+%
+% \subsection{南京大学}%
+% \label{ssec:nju}
+%
+% \begin{verbatim}
+%   \definecolor{nju}{RGB}{0,129,204}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \njuwhole[nju][1]
+% \end{verbatim}
+%
+% \njuwhole[nju][1]
+%
+% \begin{verbatim}
+%   \njulogo[nju][1]
+% \end{verbatim}
+%
+% \njulogo[nju][1]
+%
+% \begin{verbatim}
+%   \njutext[nju][1]
+% \end{verbatim}
+%
+% \njutext[nju][1]
+%
+% \subsection{南京理工大学}%
+% \label{ssec:njust}
+%
+% \begin{verbatim}
+%   \definecolor{njust}{RGB}{139,37,121}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \njustwhole[njust][1]
+% \end{verbatim}
+%
+% \njustwhole[njust][1]
+%
+% \subsection{南开大学}%
+% \label{ssec:nku}
+%
+% \begin{verbatim}
+%   \definecolor{nku}{RGB}{125,37,81}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \nkuwhole[nku][1]
+% \end{verbatim}
+%
+% \nkuwhole[nku][1]
+%
+% \begin{verbatim}
+%   \nkulogo[nku][1]
+% \end{verbatim}
+%
+% \nkulogo[nku][1]
+%
+% \begin{verbatim}
+%   \nkutext[nku][1]
+% \end{verbatim}
+%
+% \nkutext[nku][1]
+%
+% \subsection{北京大学}%
+% \label{ssec:pku}
+%
+% \begin{verbatim}
+%   \definecolor{pku1}{RGB}{146,15,20}
+%   \definecolor{pku2}{RGB}{165,22,22}
+%   \definecolor{pku3}{RGB}{154,0,0}
+%   \definecolor{pku4}{RGB}{35,24,21}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \pkutext[pku1][1]
+% \end{verbatim}
+%
+% \pkutext[pku1][1]
+%
+% \begin{verbatim}
+%   \pkulogo[pku2][1]
+% \end{verbatim}
+%
+% \pkulogo[pku2][1]
+%
+% \begin{verbatim}
+%   \pkuwhole[pku3][pku4][1]
+% \end{verbatim}
+%
+% \pkuwhole[pku3][pku4][1]
+%
+% \subsection{中国人民大学}%
+% \label{ssec:ruc}
+%
+% \begin{verbatim}
+%   \definecolor{ruc}{RGB}{192,4,21}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \rucside[ruc][1]
+% \end{verbatim}
+%
+% \rucside[ruc][1]
+%
+% \begin{verbatim}
+%   \rucwhole[ruc][1]
+% \end{verbatim}
+%
+% \rucwhole[ruc][1]
+%
+% \begin{verbatim}
+%   \ruclogo[ruc][1]
+% \end{verbatim}
+%
+% \ruclogo[ruc][1]
+%
+% \begin{verbatim}
+%   \ructext[ruc][1]
+% \end{verbatim}
+%
+% \ructext[ruc][1]
+%
+% \subsection{四川大学}%
+% \label{ssec:scu}
+%
+% \begin{verbatim}
+%   \definecolor{scu}{RGB}{44,102,69}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \scuwhole[scu][1]
+% \end{verbatim}
+%
+% \scuwhole[scu][1]
+%
+% \begin{verbatim}
+%   \sculogo[scu][1]
+% \end{verbatim}
+%
+% \sculogo[scu][1]
+%
+% \begin{verbatim}
+%   \scutext[scu][1]
+% \end{verbatim}
+%
+% \scutext[scu][1]
+%
+% \subsection{山东财经大学}%
+% \label{ssec:sdcju}
+%
+% \begin{verbatim}
+%   \definecolor{sdcju}{RGB}{0,93,169}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \sdcjuwhole[sdcju][1]
+% \end{verbatim}
+%
+% \sdcjuwhole[sdcju][1]
+%
+% \begin{verbatim}
+%   \sdcjulogo[sdcju][1]
+% \end{verbatim}
+%
+% \sdcjulogo[sdcju][1]
+%
+% \begin{verbatim}
+%   \sdcjutext[sdcju][1]
+% \end{verbatim}
+%
+% \sdcjutext[sdcju][1]
+%
+% \subsection{山东大学}%
+% \label{ssec:sdu}
+%
+% \begin{verbatim}
+%   \definecolor{sdu}{RGB}{147,2,22}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \sdulogo[sdu][1]
+% \end{verbatim}
+%
+% \sdulogo[sdu][1]
+%
+% \subsection{上海大学}%
+% \label{ssec:shu}
+%
+% \begin{verbatim}
+%   \definecolor{shu}{RGB}{0,68,125}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \shulogo[shu][1]
+% \end{verbatim}
+%
+% \shulogo[shu][1]
+%
+% \subsection{上海交通大学}%
+% \label{ssec:stju}
+%
+% \begin{verbatim}
+%   \definecolor{stju1}{RGB}{0,64,152}
+%   \definecolor{stju2}{RGB}{0,64,152}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \stjulogo[stju1][1]
+% \end{verbatim}
+%
+% \stjulogo[stju1][1]
+%
+% \begin{verbatim}
+%   \stjutext[stju1][1]
+% \end{verbatim}
+%
+% \stjutext[stju1][1]
+%
+% \begin{verbatim}
+%   \stjuside[stju2][1]
+% \end{verbatim}
+%
+% \stjuside[stju2][1]
+%
+% \subsection{南方科技大学}%
+% \label{ssec:sustc}
+%
+% \begin{verbatim}
+%   \definecolor{sustc1}{RGB}{237,109,0}
+%   \definecolor{sustc2}{RGB}{9,57,60}
+%   \definecolor{sustc3}{RGB}{237,109,0}
+%   \definecolor{sustc4}{RGB}{6,56,60}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \sustclogoen[sustc1][sustc2][1]
+% \end{verbatim}
+%
+% \sustclogoen[sustc1][sustc2][1]
+%
+% \begin{verbatim}
+%   \sustclogocn[sustc3][sustc4][1]
+% \end{verbatim}
+%
+% \sustclogocn[sustc3][sustc4][1]
+%
+% \subsection{西南农业大学}%
+% \label{ssec:swau}
+%
+% \begin{verbatim}
+%   \definecolor{swau1}{RGB}{0,141,205}
+%   \definecolor{swau2}{RGB}{0,149,78}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \swaulogo[swau1][swau2][1]
+% \end{verbatim}
+%
+% \swaulogo[swau1][swau2][1]
+%
+% \subsection{西南师范大学}%
+% \label{ssec:swcnu}
+%
+% \begin{verbatim}
+%   \definecolor{swcnu}{RGB}{31,26,23}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \swcnulogo[swcnu][1]
+% \end{verbatim}
+%
+% \swcnulogo[swcnu][1]
+%
+% \subsection{中山大学}%
+% \label{ssec:sysu}
+%
+% \begin{verbatim}
+%   \definecolor{sysu}{RGB}{8,85,33}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \sysulogo[sysu][1]
+% \end{verbatim}
+%
+% \sysulogo[sysu][1]
+%
+% \begin{verbatim}
+%   \sysutext[sysu][1]
+% \end{verbatim}
+%
+% \sysutext[sysu][1]
+%
+% \subsection{深圳大学}%
+% \label{ssec:szu}
+%
+% \begin{verbatim}
+%   \definecolor{szu}{RGB}{152,0,66}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \szuwhole[szu][1]
+% \end{verbatim}
+%
+% \szuwhole[szu][1]
+%
+% \begin{verbatim}
+%   \szulogo[szu][1]
+% \end{verbatim}
+%
+% \szulogo[szu][1]
+%
+% \begin{verbatim}
+%   \szutext[szu][1]
+% \end{verbatim}
+%
+% \szutext[szu][1]
+%
+% \subsection{清华大学}%
+% \label{ssec:thu}
+%
+% \begin{verbatim}
+%   \definecolor{thu}{RGB}{100,48,127}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \thulogo[thu][1]
+% \end{verbatim}
+%
+% \thulogo[thu][1]
+%
+% \begin{verbatim}
+%   \thulib[thu][1]
+% \end{verbatim}
+%
+% \thulib[thu][1]
+%
+% \begin{verbatim}
+%   \thutext[thu][1]
+% \end{verbatim}
+%
+% \thutext[thu][1]
+%
+% \begin{verbatim}
+%   \thuside[thu][1]
+% \end{verbatim}
+%
+% \thuside[thu][1]
+%
+% \subsection{同济大学}%
+% \label{ssec:tju}
+%
+% \begin{verbatim}
+%   \definecolor{tju}{RGB}{153,153,153}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \tjuwhole[tju][1]
+% \end{verbatim}
+%
+% \tjuwhole[tju][1]
+%
+% \begin{verbatim}
+%   \tjulogo[tju][1]
+% \end{verbatim}
+%
+% \tjulogo[tju][1]
+%
+% \begin{verbatim}
+%   \tjutext[tju][1]
+% \end{verbatim}
+%
+% \tjutext[tju][1]
+%
+% \subsection{天津大学}%
+% \label{ssec:tjuu}
+%
+% \begin{verbatim}
+%   \definecolor{tjuu}{RGB}{0,84,148}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \tjuuwhole[tjuu][1]
+% \end{verbatim}
+%
+% \tjuuwhole[tjuu][1]
+%
+% \begin{verbatim}
+%   \tjuulogo[tjuu][1]
+% \end{verbatim}
+%
+% \tjuulogo[tjuu][1]
+%
+% \begin{verbatim}
+%   \tjuutext[tjuu][1]
+% \end{verbatim}
+%
+% \tjuutext[tjuu][1]
+%
+% \subsection{北京科技大学}%
+% \label{ssec:ustb}
+%
+% \begin{verbatim}
+%   \definecolor{ustb}{RGB}{0,147,221}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \ustblogo[ustb][1]
+% \end{verbatim}
+%
+% \ustblogo[ustb][1]
+%
+% \subsection{中国科学技术大学}%
+% \label{ssec:ustc}
+%
+% \begin{verbatim}
+%   \definecolor{ustc}{RGB}{37,74,165}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \ustclogo[ustc][1]
+% \end{verbatim}
+%
+% \ustclogo[ustc][1]
+%
+% \begin{verbatim}
+%   \ustcside[ustc][1]
+% \end{verbatim}
+%
+% \ustcside[ustc][1]
+%
+% \begin{verbatim}
+%   \ustcwhole[ustc][1]
+% \end{verbatim}
+%
+% \ustcwhole[ustc][1]
+%
+% \begin{verbatim}
+%   \ustctext[ustc][1]
+% \end{verbatim}
+%
+% \ustctext[ustc][1]
+%
+% \subsection{武汉理工大学}%
+% \label{ssec:whlgu}
+%
+% \begin{verbatim}
+%   \definecolor{whlgu}{RGB}{31,60,144}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \whlgulogo[whlgu][1]
+% \end{verbatim}
+%
+% \whlgulogo[whlgu][1]
+%
+% \subsection{武汉大学}%
+% \label{ssec:whu}
+%
+% \begin{verbatim}
+%   \definecolor{whu1}{RGB}{0,0,153}
+%   \definecolor{whu2}{RGB}{255,255,255}
+%   \definecolor{whu3}{RGB}{0,64,0}
+%   \definecolor{whu4}{RGB}{0,77,0}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \whulogo[whu1][whu2][whu3][whu4][1]
+% \end{verbatim}
+%
+% \whulogo[whu1][whu2][whu3][whu4][1]
+%
+% \subsection{温州大学}%
+% \label{ssec:wzu}
+%
+% \begin{verbatim}
+%   \definecolor{wzu}{RGB}{119,110,173}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \wzulogo[wzu][1]
+% \end{verbatim}
+%
+% \wzulogo[wzu][1]
+%
+% \subsection{西北农林科技大学}%
+% \label{ssec:xbnlkju}
+%
+% \begin{verbatim}
+%   \definecolor{xbnlkju1}{RGB}{247,182,45}
+%   \definecolor{xbnlkju2}{RGB}{0,153,62}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \xbnlkjuwhole[xbnlkju1][xbnlkju2][1]
+% \end{verbatim}
+%
+% \xbnlkjuwhole[xbnlkju1][xbnlkju2][1]
+%
+% \begin{verbatim}
+%   \xbnlkjulogo[xbnlkju1][xbnlkju2][1]
+% \end{verbatim}
+%
+% \xbnlkjulogo[xbnlkju1][xbnlkju2][1]
+%
+% \begin{verbatim}
+%   \xbnlkjutext[xbnlkju1][xbnlkju2][1]
+% \end{verbatim}
+%
+% \xbnlkjutext[xbnlkju1][xbnlkju2][1]
+%
+% \subsection{西安电子科技大学}%
+% \label{ssec:xdu}
+%
+% \begin{verbatim}
+%   \xdulogo[blue][1]
+% \end{verbatim}
+%
+% \xdulogo[blue][1]
+%
+% \subsection{西安交通大学}%
+% \label{ssec:xjtu}
+%
+% \begin{verbatim}
+%   \xjtuwhole[black][1]
+% \end{verbatim}
+%
+% \xjtuwhole[black][1]
+%
+% \begin{verbatim}
+%   \xjtulogo[black][1]
+% \end{verbatim}
+%
+% \xjtulogo[black][1]
+%
+% \begin{verbatim}
+%   \xjtutext[black][1]
+% \end{verbatim}
+%
+% \xjtutext[black][1]
+%
+% \subsection{厦门大学}%
+% \label{ssec:xmu}
+%
+% \begin{verbatim}
+%   \definecolor{xmu}{RGB}{18,46,102}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \xmutext[xmu][1]
+% \end{verbatim}
+%
+% \xmutext[xmu][1]
+%
+% \begin{verbatim}
+%   \xmulogo[xmu][1]
+% \end{verbatim}
+%
+% \xmulogo[xmu][1]
+%
+% \subsection{扬州大学}%
+% \label{ssec:yzu}
+%
+% \begin{verbatim}
+%   \definecolor{yzu}{RGB}{227,0,22}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \yzuwhole[yzu][1]
+% \end{verbatim}
+%
+% \yzuwhole[yzu][1]
+%
+% \begin{verbatim}
+%   \yzulogo[yzu][1]
+% \end{verbatim}
+%
+% \yzulogo[yzu][1]
+%
+% \begin{verbatim}
+%   \yzutext[yzu][1]
+% \end{verbatim}
+%
+% \yzutext[yzu][1]
+%
+% \subsection{中国传媒大学}%
+% \label{ssec:zcmu}
+%
+% \begin{verbatim}
+%   \zcmulogo
+% \end{verbatim}
+%
+% \zcmulogo
+%
+% \subsection{中国海洋大学}%
+% \label{ssec:zhyu}
+%
+% \begin{verbatim}
+%   \definecolor{zhyu1}{RGB}{29,32,136}
+%   \definecolor{zhyu2}{RGB}{2,134,202}
+%   \definecolor{zhyu3}{RGB}{66,62,142}
+%   \definecolor{zhyu4}{RGB}{230,0,19}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \zhyulogo[zhyu1][zhyu2][zhyu3][zhyu4][1]
+% \end{verbatim}
+%
+% \zhyulogo[zhyu1][zhyu2][zhyu3][zhyu4][1]
+%
+% \subsection{浙江大学}%
+% \label{ssec:zju}
+%
+% \begin{verbatim}
+%   \definecolor{zju}{RGB}{35,31,32}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \zjulogo[zju][1]
+% \end{verbatim}
+%
+% \zjulogo[zju][1]
+%
+% \begin{verbatim}
+%   \zjutext[zju][1]
+% \end{verbatim}
+%
+% \zjutext[zju][1]
+%
+% \subsection{中国科学院大学}%
+% \label{ssec:zky}
+%
+% \begin{verbatim}
+%   \definecolor{zky}{RGB}{0,67,148}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \zkywhole[zky][1]
+% \end{verbatim}
+%
+% \zkywhole[zky][1]
+%
+% \begin{verbatim}
+%   \zkylogo[zky][1]
+% \end{verbatim}
+%
+% \zkylogo[zky][1]
+%
+% \begin{verbatim}
+%   \zkytext[zky][1]
+% \end{verbatim}
+%
+% \zkytext[zky][1]
+%
+% \subsection{中国农业大学}%
+% \label{ssec:znyu}
+%
+% \begin{verbatim}
+%   \definecolor{znyu}{RGB}{197,140,10}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \znyulogo[znyu][1]
+% \end{verbatim}
+%
+% \znyulogo[znyu][1]
+%
+% \subsection{郑州大学}%
+% \label{ssec:zzu}
+%
+% \begin{verbatim}
+%   \definecolor{zzu1}{RGB}{0,86,58}
+%   \definecolor{zzu2}{RGB}{227,0,22}
+% \end{verbatim}
+%
+% \begin{verbatim}
+%   \zzuwhole[zzu1][zzu2][1]
+% \end{verbatim}
+%
+% \zzuwhole[zzu1][zzu2][1]
+%
+% \begin{verbatim}
+%   \zzulogo[zzu1][zzu2][1]
+% \end{verbatim}
+%
+% \zzulogo[zzu1][zzu2][1]
+%
+% \begin{verbatim}
+%   \zzutext[zzu2][1]
+% \end{verbatim}
+%
+% \zzutext[zzu2][1]
+%
+% \IndexPrologue{\section{\indexname}}
+% \StopEventually{\PrintIndex}
+% \appendix
+% \section{实现}%
+% \label{sec:implement}
+%    \begin{macrocode}
+%<*sty>
+\ProvidesPackage{cnlogo}[2023/03/02 v0.0.1]
+\RequirePackage{tikz}
+\NeedsTeXFormat{LaTeX2e}
+\DeclareOption{ahu}{%
+  \input{cnlogo/ahu}
+}
+\DeclareOption{bhu}{%
+  \input{cnlogo/bhu}
+}
+\DeclareOption{bjtu}{%
+  \input{cnlogo/bjtu}
+}
+\DeclareOption{bjydu}{%
+  \input{cnlogo/bjydu}
+}
+\DeclareOption{bnu}{%
+  \input{cnlogo/bnu}
+}
+\DeclareOption{chu}{%
+  \input{cnlogo/chu}
+}
+\DeclareOption{ckyu}{%
+  \input{cnlogo/ckyu}
+}
+\DeclareOption{csu}{%
+  \input{cnlogo/csu}
+}
+\DeclareOption{cug}{%
+  \input{cnlogo/cug}
+}
+\DeclareOption{cupsl}{%
+  \input{cnlogo/cupsl}
+}
+\DeclareOption{dbcju}{%
+  \input{cnlogo/dbcju}
+}
+\DeclareOption{dllgu}{%
+  \input{cnlogo/dllgu}
+}
+\DeclareOption{fdu}{%
+  \input{cnlogo/fdu}
+}
+\DeclareOption{gnu}{%
+  \input{cnlogo/gnu}
+}
+\DeclareOption{gufs}{%
+  \input{cnlogo/gufs}
+}
+\DeclareOption{hbu}{%
+  \input{cnlogo/hbu}
+}
+\DeclareOption{hdsfu}{%
+  \input{cnlogo/hdsfu}
+}
+\DeclareOption{hdzfu}{%
+  \input{cnlogo/hdzfu}
+}
+\DeclareOption{hgyu}{%
+  \input{cnlogo/hgyu}
+}
+\DeclareOption{hhu}{%
+  \input{cnlogo/hhu}
+}
+\DeclareOption{hit}{%
+  \input{cnlogo/hit}
+}
+\DeclareOption{hnlgu}{%
+  \input{cnlogo/hnlgu}
+}
+\DeclareOption{hnnu}{%
+  \input{cnlogo/hnnu}
+}
+\DeclareOption{hnu}{%
+  \input{cnlogo/hnu}
+}
+\DeclareOption{hustc}{%
+  \input{cnlogo/hustc}
+}
+\DeclareOption{hznu}{%
+  \input{cnlogo/hznu}
+}
+\DeclareOption{jlu}{%
+  \input{cnlogo/jlu}
+}
+\DeclareOption{jnu}{%
+  \input{cnlogo/jnu}
+}
+\DeclareOption{ju}{%
+  \input{cnlogo/ju}
+}
+\DeclareOption{lzu}{%
+  \input{cnlogo/lzu}
+}
+\DeclareOption{muc}{%
+  \input{cnlogo/muc}
+}
+\DeclareOption{ncu}{%
+  \input{cnlogo/ncu}
+}
+\DeclareOption{neu}{%
+  \input{cnlogo/neu}
+}
+\DeclareOption{nju}{%
+  \input{cnlogo/nju}
+}
+\DeclareOption{njust}{%
+  \input{cnlogo/njust}
+}
+\DeclareOption{nku}{%
+  \input{cnlogo/nku}
+}
+\DeclareOption{pku}{%
+  \input{cnlogo/pku}
+}
+\DeclareOption{ruc}{%
+  \input{cnlogo/ruc}
+}
+\DeclareOption{scu}{%
+  \input{cnlogo/scu}
+}
+\DeclareOption{sdcju}{%
+  \input{cnlogo/sdcju}
+}
+\DeclareOption{sdu}{%
+  \input{cnlogo/sdu}
+}
+\DeclareOption{shu}{%
+  \input{cnlogo/shu}
+}
+\DeclareOption{stju}{%
+  \input{cnlogo/stju}
+}
+\DeclareOption{sustc}{%
+  \input{cnlogo/sustc}
+}
+\DeclareOption{swau}{%
+  \input{cnlogo/swau}
+}
+\DeclareOption{swcnu}{%
+  \input{cnlogo/swcnu}
+}
+\DeclareOption{sysu}{%
+  \input{cnlogo/sysu}
+}
+\DeclareOption{szu}{%
+  \input{cnlogo/szu}
+}
+\DeclareOption{thu}{%
+  \input{cnlogo/thu}
+}
+\DeclareOption{tju}{%
+  \input{cnlogo/tju}
+}
+\DeclareOption{tjuu}{%
+  \input{cnlogo/tjuu}
+}
+\DeclareOption{ustb}{%
+  \input{cnlogo/ustb}
+}
+\DeclareOption{ustc}{%
+  \input{cnlogo/ustc}
+}
+\DeclareOption{whlgu}{%
+  \input{cnlogo/whlgu}
+}
+\DeclareOption{whu}{%
+  \input{cnlogo/whu}
+}
+\DeclareOption{wzu}{%
+  \input{cnlogo/wzu}
+}
+\DeclareOption{xbnlkju}{%
+  \input{cnlogo/xbnlkju}
+}
+\DeclareOption{xdu}{%
+  \input{cnlogo/xdu}
+}
+\DeclareOption{xjtu}{%
+  \input{cnlogo/xjtu}
+}
+\DeclareOption{xmu}{%
+  \input{cnlogo/xmu}
+}
+\DeclareOption{yzu}{%
+  \input{cnlogo/yzu}
+}
+\DeclareOption{zcmu}{%
+  \input{cnlogo/zcmu}
+}
+\DeclareOption{zhyu}{%
+  \input{cnlogo/zhyu}
+}
+\DeclareOption{zju}{%
+  \input{cnlogo/zju}
+}
+\DeclareOption{zky}{%
+  \input{cnlogo/zky}
+}
+\DeclareOption{znyu}{%
+  \input{cnlogo/znyu}
+}
+\DeclareOption{zzu}{%
+  \input{cnlogo/zzu}
+}
+\ProcessOptions%
+%</sty>
+%    \end{macrocode}
+% \Finale
+% ex: nowrap

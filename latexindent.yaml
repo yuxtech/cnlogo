@@ -1,0 +1,12 @@
+#!/usr/bin/env -S latexindent -l
+---
+defaultIndent: "  "
+indentPreamble: 1
+fileExtensionPreference:
+  .dtx: 1
+  .ins: 2
+  .tex: 3
+  .sty: 4
+  .cls: 5
+  .tikz: 6
+  .bib: 7
