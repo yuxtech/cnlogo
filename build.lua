@@ -25,7 +25,7 @@ uploadconfig = {
     pkg = module,
     summary = [[Producing logos of Chinese Colleges.]],
     uploader = "Wu Zhenyu",
-    version = "2023/03/02 v0.0.1",
+    version = "2023/03/05 v0.0.3",
 
     bugtracker = repository .. "/issues",
     description = [[安徽大学 (ahu), 北京航空航天大学 (bhu), 北京交通大学 (bjtu), 北京邮电大学 (bjydu), 北京师范大学 (bnu), 长安大学 (chu), 中国矿业大学 (ckyu), 中南大学 (csu), 中国地质大学 (cug), 中国政法大学 (cupsl), 东北财经大学 (dbcju), 大连理工大学 (dllgu), 复旦大学 (fdu), 贵阳师范大学 (gnu), 广东外语外贸大学 (gufs), 湖北大学 (hbu), 华东师范大学 (hdsfu), 华东政法大学 (hdzfu), 合肥工业大学 (hgyu), 河海大学 (hhu), 哈尔滨工业大学 (hit), 华南理工大学 (hnlgu), 湖南师范大学 (hnnu), 湖南大学 (hnu), 华中科技大学 (hustc), 华中师范大学 (hznu), 吉林大学 (jlu), 暨南大学 (jnu), 江南大学 (ju), 兰州大学 (lzu), 中央民族大学 (muc), 南昌大学 (ncu), 东北大学 (neu), 南京大学 (nju), 南京理工大学 (njust), 南开大学 (nku), 北京大学 (pku), 中国人民大学 (ruc), 四川大学 (scu), 山东财经大学 (sdcju), 山东大学 (sdu), 上海大学 (shu), 上海交通大学 (stju), 南方科技大学 (sustc), 西南农业大学 (swau), 西南师范大学 (swcnu), 中山大学 (sysu), 深圳大学 (szu), 清华大学 (thu), 同济大学 (tju), 天津大学 (tjuu), 北京科技大学 (ustb), 中国科学技术大学 (ustc), 武汉理工大学 (whlgu), 武汉大学 (whu), 温州大学 (wzu), 西北农林科技大学 (xbnlkju), 西安电子科技大学 (xdu), 西安交通大学 (xjtu), 厦门大学 (xmu), 扬州大学 (yzu), 中国传媒大学 (zcmu), 中国海洋大学 (zhyu), 浙江大学 (zju), 中国科学院大学 (zky), 中国农业大学 (znyu), 郑州大学 (zzu)]], -- luacheck: ignore 631

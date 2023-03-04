@@ -4,6 +4,10 @@
   pull_request:
   workflow_dispatch:
 
+# https://github.com/softprops/action-gh-release/issues/236
+permissions:
+  contents: write
+
 env:
   files: build/distrib/*/*.zip
 
@@ -22,17 +26,23 @@ jobs:
         with:
           path: |
             ${{ env.files }}
+      - name: Get changelog
+        if: startsWith(github.ref, 'refs/tags/')
+        run: >
+          mkdir -p build;
+          perl -0777 -ne'/## .*?\n\n(.*?)\n\n\n/s; print $1' CHANGELOG.md >
+          build/CHANGELOG.md
+      - uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          body_path: build/CHANGELOG.md
+          files: |
+            ${{ env.files }}
       - uses: xu-cheng/texlive-action/full@v1
         if: startsWith(github.ref, 'refs/tags/')
-        # https://github.com/actions/checkout/issues/1190
         with:
           run: |
             apk add git
             git config --global --add safe.directory '*'
-            l3build tag $(git tag | tail -n1)
+            l3build tag ${{ github.ref_name }}
             l3build ctan
-      - uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          files: |
-            ${{ env.files }}

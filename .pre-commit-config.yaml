@@ -1,4 +1,6 @@
 ---
+exclude: ^CHANGELOG\.md$
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.4.0
@@ -68,3 +70,10 @@ repos:
       - id: markdownlint-cli2
         additional_dependencies:
           - markdown-it-texmath@0.9.1
+  - repo: https://github.com/Freed-Wu/pre-commit-hooks
+    rev: 0.0.9
+    hooks:
+      - id: update-package.json
+        args:
+          - build.lua
+          - package.json
