@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: xu-cheng/texlive-action/full@v1
+      - uses: xu-cheng/texlive-action/full@v2
         if: ${{ ! startsWith(github.ref, 'refs/tags/') }}
         with:
           run: |
@@ -38,7 +38,7 @@ jobs:
           body_path: build/CHANGELOG.md
           files: |
             ${{ env.files }}
-      - uses: xu-cheng/texlive-action/full@v1
+      - uses: xu-cheng/texlive-action/full@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
           run: |
