@@ -1,3 +1,4 @@
+*.rock
 *.sty
 *.cls
 /build/
