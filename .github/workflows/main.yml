@@ -13,39 +13,32 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - uses: leafo/gh-actions-lua@v12
-        with:
-          luaVersion: "5.3"
-      - uses: leafo/gh-actions-luarocks@v6
       - run: |
           sudo apt-get -y update
           sudo apt-get -y install libreadline-dev
-          luarocks install l3build
-          luarocks install luatex
-      - uses: lumen-oss/luarocks-tag-release@v7.2.0
+      - uses: lumen-oss/luarocks-tag-release@v9
         env:
-          TEXMFDOTDIR: .;~/work/_temp//
-          LUAROCKS_API_KEY: ${{secrets.LUAROCKS_API_KEY}}
-        if: "! startsWith(github.ref, 'refs/tags/')"
+          LUX_API_KEY: ${{secrets.LUAROCKS_API_KEY}}
+          HISTORY_INCDIR: /usr/include
+          HISTORY_LIBDIR: /usr/lib/x86_64-linux-gnu
+          READLINE_INCDIR: /usr/include
+          READLINE_LIBDIR: /usr/lib/x86_64-linux-gnu
         with:
-          extra_luarocks_args: |
-            --force
-          version: scm
-          template: template.rockspec
+          lua_version: "5.3"
+          lux_version: 0.49.0
+          dependencies: |
+            pgf
+          template: assets/lua/template.lua
           license: AGPL-3.0-or-later
-      - uses: lumen-oss/luarocks-tag-release@v7.2.0
-        env:
-          TEXMFDOTDIR: .;~/work/_temp//
-          LUAROCKS_API_KEY: ${{secrets.LUAROCKS_API_KEY}}
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          extra_luarocks_args: |
-            --force
-          template: template.rockspec
-          license: AGPL-3.0-or-later
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
       - uses: xu-cheng/texlive-action/full@v1
         if: ${{ ! startsWith(github.ref, 'refs/tags/') }}
         with:
