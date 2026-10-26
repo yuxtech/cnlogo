@@ -152,13 +152,13 @@ gh pr create  # 发送代码合并请求
 
 1. 使用 [Inkscape](https://github.com/inkscape/inkscape) 打开 `pdf` 后另存为
    `svg`
-2. `Extensions > Export > Export to tikz`
-3. 编辑生成的代码得到 `cnlogo/学校的缩写.tex`
+1. `Extensions > Export > Export to tikz`
+1. 编辑生成的代码得到 `cnlogo/学校的缩写.tex`
 
 ## :construction: TODO
 
 1. 为所有学校都添加一个指向学校网址的超链接
-2. 将学校的 logo 统一修改为相同尺寸，目前定为能使以下代码中校徽的圆能与侧边栏正切的尺寸
+1. 将学校的 logo 统一修改为相同尺寸，目前定为能使以下代码中校徽的圆能与侧边栏正切的尺寸
 
 ```tex
 \documentclass{beamer}
